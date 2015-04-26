@@ -1,7 +1,7 @@
 lin_reg_full <- function(all=TRUE) {
 
 	start <- Sys.time()
-	ad_data <- read.table("training.txt")
+	ad_data <- read.table("train_final.txt")
 	end <- Sys.time()
 
 	diff <- end - start
@@ -48,7 +48,7 @@ lin_reg_full <- function(all=TRUE) {
 	rm(h)
 
 	start <- Sys.time()
-	ad_data <- read.table("test.txt")
+	ad_data <- read.table("test_final.txt")
 	end <- Sys.time()
 	diff <- end - start
 
@@ -56,7 +56,7 @@ lin_reg_full <- function(all=TRUE) {
 	print("time taken")
 	print(diff)
 
-	names(ad_data) <- c("ad_urlhash", "ad_id", "advertiser_id", "depth", "position", "query_id", "keyword_id", "title_id", "desc_id", "user_id")
+	names(ad_data) <- c("click", "impression", "ad_urlhash", "ad_id", "advertiser_id", "depth", "position", "query_id", "keyword_id", "title_id", "desc_id", "user_id")
 	
 	start <- Sys.time()
 	h<-predict(lm.fit,ad_data)

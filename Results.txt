@@ -1,0 +1,20 @@
+R
+Training full data : train_final.txt
+Test full data : test_final.txt
+
+scoreKDD.py : i/p - train_first2.csv 
+
+
+
+
+1.)Linear Regression - features except ad_url
+
+	Training Time : 5.175579 mins
+
+	Train
+	AUC  : 0.627251
+
+	Test
+	AUC  : 0.622477
+
+
