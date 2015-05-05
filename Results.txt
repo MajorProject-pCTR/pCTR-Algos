@@ -5,8 +5,6 @@ Test full data : test_final.txt
 scoreKDD.py : i/p - train_first2.csv 
 
 
-
-
 1.)Linear Regression - features except ad_url
 
 	Training Time : 5.175579 mins
@@ -17,4 +15,23 @@ scoreKDD.py : i/p - train_first2.csv
 	Test
 	AUC  : 0.622477
 
+2.)Logistic Regression - dep, pos
+	
+	Training Time : 2.308732 hours
+
+	Train
+	AUC  : 0.583907
+
+	Test
+	AUC  : 0.591158
+
+3.)Logistic Regression - features except ad_url
+
+	Training Time : 1.955668 hours
+
+	Train
+	AUC  : 0.635350
+
+	Test
+	AUC  : 0.635726
 
