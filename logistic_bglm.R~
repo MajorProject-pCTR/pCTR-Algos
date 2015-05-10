@@ -7,6 +7,9 @@ logistic_bglm <- function(all=TRUE) {
 	diff <- end - start
 
 	names(ad_data) <- c("index", "if_click", "ad_id", "advertiser_id", "depth", "position", "query_id", "keyword_id", "title_id", "desc_id", "user_id")
+
+	ad_data <- normalize(ad_data)$data
+
 	ad_data$click <- 0
 	ad_data$impression <- 0
 	ad_data$ad_urlhash <- 0
@@ -17,13 +20,15 @@ logistic_bglm <- function(all=TRUE) {
 
 	if(all){
 		start <- Sys.time()
-		glm <- bigglm(if_click~ad_id+advertiser_id+depth+position+query_id+keyword_id+title_id+desc_id+user_id, data=ad_data, family=binomial())
+		glm <- bigglm(if_click~ad_id+advertiser_id+depth+position+query_id+keyword_id+title_id+desc_id+user_id, data=ad_data, family=binomial(), chunksize=300000)
 		end <- Sys.time()
+                print(summary(glm))
 	}
 	else{
 		start <- Sys.time()
-		glm <- bigglm(if_click~depth+position, data=ad_data, family=binomial())
+		glm <- bigglm(if_click~depth+position, data=ad_data, family=binomial(), chunksize=300000)
 		end <- Sys.time()
+                print(summary(glm))
 	}
 
 	diff <- end - start
@@ -31,6 +36,7 @@ logistic_bglm <- function(all=TRUE) {
 	print("time taken")
 	print(diff)
 
+	rm(ad_data)
 
 	print("Prediction on training data")
 
@@ -43,12 +49,21 @@ logistic_bglm <- function(all=TRUE) {
 	print(diff)
 
 	names(ad_data) <- c("click", "impression", "ad_urlhash", "ad_id", "advertiser_id", "depth", "position", "query_id", "keyword_id", "title_id", "desc_id", "user_id")
+
+	n_data <- normalize(ad_data)
+
+	ad_data <- n_data$data
+	mu <- n_data$mu
+	stddev <- n_data$stddev
+
+	rm(n_data)
+
 	ad_data$if_click <- 0
 	ad_data$index <- 0
 
 	
 	start <- Sys.time()
-	h<-predict(lm,ad_data)
+	h<-predict(glm,ad_data)
 	end <- Sys.time()
 	print("time taken for obtaining predictions")
 	diff <- end - start
@@ -73,12 +88,14 @@ logistic_bglm <- function(all=TRUE) {
 	print(diff)
 
 	names(ad_data) <- c("click", "impression", "ad_urlhash", "ad_id", "advertiser_id", "depth", "position", "query_id", "keyword_id", "title_id", "desc_id", "user_id")
+
+	ad_data <- normalize2(ad_data, mu, stddev)
+
 	ad_data$if_click <- 0
 	ad_data$index <- 0
 
-	
 	start <- Sys.time()
-	h<-predict(lm,ad_data)
+	h<-predict(glm,ad_data)
 	end <- Sys.time()
 	print("time taken for obtaining predictions")
 	diff <- end - start
@@ -90,4 +107,34 @@ logistic_bglm <- function(all=TRUE) {
 	print("time taken for writing predictions")
 	diff <- end - start
 	print(diff)
+}
+
+normalize <- function(data) {
+
+	mu <- list()
+	stddev <- list()
+
+	for(n in names(data)){
+		if(n!="if_click" & n!="index"){
+			#print(n)
+			mu[[n]] <- mean(data[[n]])
+			stddev[[n]] <- sd(data[[n]])	
+
+			data[[n]] <- (data[[n]]-mu[[n]])/stddev[[n]]
+		}			
+	}
+
+	list(data=data, mu=mu, stddev=stddev)
+}
+
+normalize2 <- function(data, mu, stddev) {
+
+	for(n in names(data)){
+		if(n != "if_click" & n != "index"){
+			#print(n)
+			data[[n]] <- (data[[n]]-mu[[n]])/stddev[[n]]	
+		}			
+	}
+
+	data
 }
