@@ -1,4 +1,4 @@
-sort -k 11,11 orig.txt > orig-sort.txt
+sort -k 11,11 train_80_sub.txt > orig-sort.txt
 sort -k 1,1 tcnt_descriptionid_tokensid.txt > id-sort.txt
 
 join -1 11 -2 1 orig-sort.txt id-sort.txt > join.txt
