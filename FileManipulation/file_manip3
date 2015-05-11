@@ -1,0 +1,33 @@
+g++ to_join_orig3.cpp -o obj
+./obj
+
+sort -k 13,13 orig.txt > orig-sort.txt
+sort -k 1,1 userid_profile.txt > id-sort.txt
+
+join -1 13 -2 1 orig-sort.txt id-sort.txt > join.txt
+
+sort -k 13,13 orig.txt > orig-sort.txt
+sort -k 1,1 tcnt_descriptionid_tokensid.txt > id-sort.txt
+
+join -1 13 -2 1 orig-sort.txt id-sort.txt > join.txt
+
+
+sort -k 13,13 join.txt > orig-sort.txt
+sort -k 1,1 tcnt_titleid_tokensid.txt > id-sort.txt
+
+join -1 13 -2 1 orig-sort.txt id-sort.txt > join.txt
+
+
+sort -k 13,13 join.txt > orig-sort.txt
+sort -k 1,1 tcnt_purchasedkeywordid_tokensid.txt > id-sort.txt
+
+join -1 13 -2 1 orig-sort.txt id-sort.txt > join.txt
+
+
+sort -k 13,13 join.txt > orig-sort.txt
+sort -k 1,1 tcnt_queryid_tokensid.txt > id-sort.txt
+
+join -1 13 -2 1 orig-sort.txt id-sort.txt > join.txt
+
+g++ to_join_orig4.cpp -o obj
+./obj

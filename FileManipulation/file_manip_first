@@ -1,0 +1,4 @@
+python token_count.py descriptionid_tokensid.txt
+python token_count.py titleid_tokensid.txt
+python token_count.py purchasedkeywordid_tokensid.txt
+python token_count.py queryid_tokensid.txt
