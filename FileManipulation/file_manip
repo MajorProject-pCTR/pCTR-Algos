@@ -26,7 +26,7 @@ join -1 11 -2 1 orig-sort.txt id-sort.txt > join.txt
 
 echo 'Joined query_id'
 
-sort -k 12,12 orig.txt > orig-sort.txt
+sort -k 12,12 join.txt > orig-sort.txt
 sort -k 1,1 userid_profile.txt > id-sort.txt
 
 join -1 12 -2 1 orig-sort.txt id-sort.txt > join.txt
