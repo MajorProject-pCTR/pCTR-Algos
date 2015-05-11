@@ -21,7 +21,7 @@ int main(){
 			if(input_file.eof())
 				break;
 				
-			output_file << click << " " << impression << " " << ad_id << " " << advertiser_id << " " << depth << " " << position << " " << ad_url_freq <<  " "  << ad_id_freq <<  " "  << adv_id_freq <<  " " << user_id_freq << " " << gender << " " << age << " " << description_id_freq << " " << desc_id_tokencnt << " " << title_id_freq << " " << titid_tokencnt << " " << keyword_id_freq << " " << purc_k_id_tokencnt << " " << query_id_freq << " "<< qid_tokencnt << " " << "\n";
+			output_file << click << " " << impression << " " << depth << " " << position << " " << ad_url_freq <<  " "  << ad_id_freq <<  " "  << adv_id_freq <<  " " << user_id_freq << " " << gender << " " << age << " " << description_id_freq << " " << desc_id_tokencnt << " " << title_id_freq << " " << titid_tokencnt << " " << keyword_id_freq << " " << purc_k_id_tokencnt << " " << query_id_freq << " "<< qid_tokencnt <<"\n";
 
 		}
 		input_file.close();
