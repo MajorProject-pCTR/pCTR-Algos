@@ -1,8 +1,8 @@
-lr_join_sub <- function() {
+lr_join <- function() {
 
 	library(biglm)
 	start <- Sys.time()
-	ad_data <- read.table("train_sub_processed.txt")
+	ad_data <- read.table("train_processed.txt")
 	end <- Sys.time()
 
 	diff <- end - start
@@ -19,10 +19,10 @@ lr_join_sub <- function() {
 	print(diff)
 
 	start <- Sys.time()
-	lm <- biglm(click/impression ~ depth+position+ad_url_freq+ad_id_freq+adv_id_freq+user_id_freq+gender+age+desc_id_freq*desc_id_tokencnt+t_id_freq*t_id_tokencnt+k_id_freq*k_id_tokencnt+qid_freq*qid_tokencnt, ad_data[1:200000,])
-	lm <- update(lm, ad_data[200001:400000,])
-	lm <- update(lm, ad_data[400001:600000,])
-	lm <- update(lm, ad_data[600001:800000,])	
+	lm <- biglm(click/impression ~ depth+position+ad_url_freq+ad_id_freq+adv_id_freq+user_id_freq+gender+age+desc_id_freq*desc_id_tokencnt+t_id_freq*t_id_tokencnt+k_id_freq*k_id_tokencnt+qid_freq*qid_tokencnt, ad_data[1:30000000,])
+	lm <- update(lm, ad_data[30000001:60000000,])
+	lm <- update(lm, ad_data[60000001:90000000,])
+	lm <- update(lm, ad_data[90000001:119711284,])	
 	end <- Sys.time()
 
 	print(summary(lm))
@@ -40,7 +40,7 @@ lr_join_sub <- function() {
 	print(diff)
 
 	start <- Sys.time()
-	write(h,file="pred_trainpro_sub.csv",sep="\n")
+	write(h,file="pred_trainpro.csv",sep="\n")
 	end <- Sys.time()
 	print("time taken for writing predictions")
 	diff <- end - start
@@ -49,7 +49,7 @@ lr_join_sub <- function() {
 	rm(h)
 
 	start <- Sys.time()
-	ad_data <- read.table("test_sub_processed.txt")
+	ad_data <- read.table("test_processed.txt")
 	end <- Sys.time()
 	diff <- end - start
 
@@ -72,7 +72,7 @@ lr_join_sub <- function() {
 	print(diff)
 
 	start <- Sys.time()
-	write(h,file="pred_testpro_sub.csv",sep="\n")
+	write(h,file="pred_testpro.csv",sep="\n")
 	end <- Sys.time()
 	print("time taken for writing predictions")
 	diff <- end - start
