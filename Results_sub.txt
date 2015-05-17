@@ -38,15 +38,17 @@ Testing data : test_sub_processed.txt
 	Test
 	AUC  : 0.650632
 
-2.)Linear Regression - taking gender, age, depth, pos as categorical ; considering interaction terms idcnt and idfreq
+2.)Linear Regression - taking gender, age, depth, pos as categorical 
 
-	Training Time : 2.310159 secs
+	Training Time : 2.405395 secs
 
 	Train
-	AUC  : 0.651256
+	AUC  : 0.649886
 
 	Test
-	AUC  : 0.654602
+	AUC  : 0.654083
+
+ considering interaction terms idcnt and idfreq - improves AUC a bit 0.001 - but coefficients of interaction terms are zeroes
 
 3.)Logistic Regression - taking gender and age as categorical
 
