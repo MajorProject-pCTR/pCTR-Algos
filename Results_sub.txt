@@ -1,0 +1,71 @@
+R
+Training data : train_80_sub.txt
+Test data : test_sub.txt
+
+1.)Linear Regression - features except ad_url
+
+	Training Time : 1.498667 secs
+
+	Train
+	AUC  : 0.625260
+
+	Test
+	AUC  : 0.641142
+
+2.)Logistic Regression - features except ad_url
+
+	Training Time : 23.45359 secs
+
+	Train
+	AUC  : 0.628291
+
+	Test
+	AUC  : 0.641853
+
+********************************************************************************
+
+Unrolled : unrolled_processed_sub.txt
+Training data : train_sub_processed.txt
+Testing data : test_sub_processed.txt
+
+1.)Linear Regression - taking gender and age as categorical
+
+	Training Time : 2.284649 secs
+
+	Train
+	AUC  : 0.645885
+
+	Test
+	AUC  : 0.650632
+
+2.)Linear Regression - taking gender, age, depth, pos as categorical ; considering interaction terms idcnt and idfreq
+
+	Training Time : 2.310159 secs
+
+	Train
+	AUC  : 0.651256
+
+	Test
+	AUC  : 0.654602
+
+3.)Logistic Regression - taking gender and age as categorical
+
+	Training Time : 33.40022 secs
+
+	Train
+	AUC  : 0.648638
+
+	Test
+	AUC  : 0.652751
+
+4.)Logistic Regression - taking gender, age, depth, pos as categorical ; considering interaction terms idcnt and idfreq
+
+	Training Time : 36.38196 secs
+
+	Train
+	AUC  : 0.655163
+
+	Test
+	AUC  : 0.657132
+
+
