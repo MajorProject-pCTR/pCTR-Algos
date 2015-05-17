@@ -15,11 +15,11 @@ Test full data : test_final.txt
 
 2.)Logistic Regression - features except ad_url
 
-	Training Time : 1.936982 hours
+	Training Time : 1.279687 hours
 
 	Train
-	AUC  : 0.634667
+	AUC  : 0.635350
 
 	Test
-	AUC  : 0.635161
+	AUC  : 0.635726
 
