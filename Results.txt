@@ -23,3 +23,20 @@ Test full data : test_final.txt
 	Test
 	AUC  : 0.635726
 
+********************************************************************************
+
+Unrolled : unrolled_processed.txt
+Training data : train_processed.txt
+Testing data : test_processed.txt
+
+1.)Linear Regression - taking gender, age, depth, pos as categorical 
+
+	Training Time : 5.26385 mins
+
+	Train
+	AUC  : 0.655976
+
+	Test
+	AUC  : 0.643601
+
+2.)
