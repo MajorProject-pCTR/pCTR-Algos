@@ -39,4 +39,12 @@ Testing data : test_processed.txt
 	Test
 	AUC  : 0.643601
 
-2.)
+2.)Logistic Regression - taking gender, age, depth, pos as categorical 
+
+	Training Time : 1.289075 hours
+
+	Train
+	AUC  : 0.661432
+
+	Test
+	AUC  : 
