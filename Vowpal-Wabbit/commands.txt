@@ -1,0 +1,12 @@
+FOR TRANING:
+Linear Regression : vw input.data.vw -c -f predictor.vw -p train_predictions.txt
+
+Logistic Regression: vw input.data.vw -c -f predictor.vw -p train_predictions.txt --loss_function logistic --binary
+
+Artificial Neural Network: cat input.data.vw | vw --nn 5 -p train_predictions.txt -f predictor.vw
+
+FOR TESTING:
+vw -d test.data.vw -t -i predictor.vw -p test_predictions.txt
+
+FOR VALIDATION:
+vw -d valid.data.vw -t -i predictor.vw -p valid_predictions.txt
