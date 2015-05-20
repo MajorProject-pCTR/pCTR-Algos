@@ -1,0 +1,27 @@
+sort -k 11,11 id_count_input.txt -T "/home/abhivij" > orig-sort.txt
+sort -k 1,1 tcnt_descriptionid_tokensid.txt -T "/home/abhivij" > id-sort.txt
+
+join -1 11 -2 1 orig-sort.txt id-sort.txt > join.txt
+
+echo 'Joined desc_id'
+
+sort -k 11,11 join.txt -T "/home/abhivij" > orig-sort.txt
+sort -k 1,1 tcnt_titleid_tokensid.txt -T "/home/abhivij" > id-sort.txt
+
+join -1 11 -2 1 orig-sort.txt id-sort.txt > join.txt
+
+echo 'Joined title_id'
+
+sort -k 11,11 join.txt -T "/home/abhivij" > orig-sort.txt
+sort -k 1,1 tcnt_purchasedkeywordid_tokensid.txt -T "/home/abhivij" > id-sort.txt
+
+join -1 11 -2 1 orig-sort.txt id-sort.txt > join.txt
+
+echo 'Joined keyword_id'
+
+sort -k 11,11 join.txt -T "/home/abhivij" > orig-sort.txt
+sort -k 1,1 tcnt_queryid_tokensid.txt -T "/home/abhivij" > id-sort.txt
+
+join -1 11 -2 1 orig-sort.txt id-sort.txt > join.txt
+
+echo 'Joined query_id'

@@ -47,4 +47,4 @@ Testing data : test_processed.txt
 	AUC  : 0.661432
 
 	Test
-	AUC  : 0.654133
+	AUC  : 0.654381

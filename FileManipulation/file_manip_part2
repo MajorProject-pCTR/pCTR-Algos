@@ -1,0 +1,16 @@
+sort -k 12,12 join.txt -T "/home/abhivij" > orig-sort.txt
+
+echo 'join sorted'
+
+sort -k 1,1 userid_profile.txt -T "/home/abhivij" > id-sort.txt
+
+echo 'user id sorted'
+
+join -1 12 -2 1 orig-sort.txt id-sort.txt > join.txt
+
+echo 'Joined user_id'
+
+g++ Modifytrain.cpp -o obj
+./obj
+
+echo "Done"
