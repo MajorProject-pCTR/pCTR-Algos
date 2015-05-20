@@ -7,7 +7,7 @@ int main(){
 	char display_url[50],ad_id[20],advertiser_id[20],query_id[20],keyword_id[20],title_id[20],description_id[20],user_id[20];
 	int depth,position;
 	float ctr;
-	FILE *fp1=fopen("train_unrolled.txt","r");
+	FILE *fp1=fopen("train_unrolled_sub.txt","r");
 	FILE *fp2=fopen("input.data.vw","w");
 	for(i=1;i<=3320848;i++){
 		fscanf(fp1, " %d %d %s %s %s %d %d %s %s %s %s %s",&slno, &click, display_url, ad_id, advertiser_id, &depth, &position, query_id, keyword_id, title_id, description_id, user_id);
